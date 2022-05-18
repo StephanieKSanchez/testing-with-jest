@@ -8,7 +8,7 @@ describe("The tests for sum", () => {
         const expected = 2
     
         //Act -- Calling the action. Perform the action
-        const actual = sut(a, b)
+        const actual = sut.sum(a, b)
     
         //Assert -- Does it do what it's supposed to do
         expect(actual).toBe(expected)
@@ -24,5 +24,40 @@ it("Should fail with a string input", () => {
 
     //Assert
     expect(actual).toBe(expected)
+})
+
+describe("The test for cube", () => {
+    it ('This shoud raise a number to the third power', () => {
+        // Arrange 
+        const a = 2, expectedResult = 8
+
+        // Act
+        const actual = sut.toCube(a)
+
+        // Assert
+        expect(actual).toBe(expectedResult)
+    })
+
+    it ('This should fail if a string is entered', () => {
+        // Arrange 
+        const a = "tom", expectedResult = "Bad input"
+
+        // Act
+        const actual = sut.toCube(a)
+
+        // Assert
+        expect(actual).toBe(expectedResult)
+    })
+
+    fit ('SHould get an error if a boolean is entered', () => {
+        // Arrange 
+        const a = true, expectedResult = "Bad input"
+
+        // Act
+        const actual = sut.toCube(a)
+
+        // Assert
+        expect(actual).toBe(expectedResult)
+    })
 })
 
